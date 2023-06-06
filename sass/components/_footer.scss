@@ -1,0 +1,22 @@
+.main-footer {
+  font-size: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+
+  .footer-contents-wrapper {
+    font-size: 1em;
+    &__controls {
+      font-size: 1em;
+      padding: 1.5em;
+      display: flex;
+      justify-content: space-between;
+
+      & > svg {
+        font-size: 1em;
+        display: block;
+        width: 1.5em;
+      }
+    }
+  }
+}

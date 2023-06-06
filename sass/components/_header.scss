@@ -1,0 +1,15 @@
+.main-header {
+  font-size: 1em;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  padding: 2em 0.5em;
+  background-color: white;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .main-header {
+    display: block;
+  }
+}

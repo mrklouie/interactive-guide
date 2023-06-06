@@ -1,0 +1,125 @@
+.main-container {
+  font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper-contents {
+  font-size: 1em;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.interactive-guide-carousel {
+  font-size: 1em;
+  overflow: hidden;
+  width: min(100em, 67%);
+  outline: 1px dashed #4c7585;
+}
+.interactive-guide-carousel__swiper-wrapper {
+  font-size: 1em;
+}
+.interactive-guide-carousel__swiper-slide {
+  font-size: 1em;
+  display: grid;
+  place-items: center;
+}
+.interactive-guide-carousel__swiper-slide > svg {
+  font-size: 1em;
+  display: block;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    width: 100%;
+    height: 100%;
+  }
+  .wrapper-contents {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .interactive-guide-carousel {
+    width: min(100em, 95%);
+    outline: 1px dashed #4c7585;
+  }
+  .interactive-guide-carousel__swiper-slide {
+    display: grid;
+    place-items: center;
+  }
+  .interactive-guide-carousel__swiper-slide > svg {
+    max-width: 50%;
+  }
+}
+.disclaimer {
+  outline: 1px solid black;
+  background-color: #6199ae;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  place-items: center;
+}
+.disclaimer h2 {
+  font-size: 3em;
+  color: white;
+}
+
+.main-footer {
+  font-size: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+.main-footer .footer-contents-wrapper {
+  font-size: 1em;
+}
+.main-footer .footer-contents-wrapper__controls {
+  font-size: 1em;
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.main-footer .footer-contents-wrapper__controls > svg {
+  font-size: 1em;
+  display: block;
+  width: 1.5em;
+}
+
+.main-header {
+  font-size: 1em;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  padding: 2em 0.5em;
+  background-color: white;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .main-header {
+    display: block;
+  }
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  background-color: #6199ae;
+}
+
+.swiper-slide {
+  height: auto !important;
+}/*# sourceMappingURL=styles.css.map */
