@@ -1,8 +1,7 @@
 //Variables
-const query = matchMedia("(max-width: 1023px)");
+const query = matchMedia("(max-width: 1023px) and (orientation: landscape)");
 const svgEl = document.querySelectorAll(".webportal-screen");
-const animateThisEl = document.getElementById("animate-this");
-
+const ctrlBtns = document.querySelectorAll(".footer-contents-wrapper__btn");
 //Objects
 const viewBoxSizes = {
   original: "0 0 1018 805",
@@ -10,24 +9,35 @@ const viewBoxSizes = {
 };
 
 //Functions
-function changeViewBox() {
-  if (query.matches) {
-    svgEl.forEach((svg, index) => {
-      if (index === 0) {
-        gsap.fromTo(
-          svg,
-          { attr: { viewBox: "-250 0 1525 800" } },
 
-          {
-            delay: 1.5,
-            attr: { viewBox: viewBoxSizes.mobileLandscape },
-            duration: 1.5,
-          }
-        );
-      } else {
-        svg.setAttribute("viewBox", viewBoxSizes.mobileLandscape);
+function enableBtns() {
+  ctrlBtns.forEach((button) => {
+    button.classList.add("active");
+  });
+}
+
+function changeViewBox() {
+  svgEl.forEach((svg) => svg.classList.add("active"));
+
+  if (query.matches) {
+    console.log("Started");
+    gsap.fromTo(
+      svgEl[0],
+      { attr: { viewBox: "-250 0 1525 800" } },
+
+      {
+        delay: 1.5,
+        attr: { viewBox: viewBoxSizes.mobileLandscape },
+        duration: 1.5,
+        onComplete: function () {
+          enableBtns();
+          svgEl.forEach((svg, index) => {
+            if (index === 0) return;
+            svg.setAttribute("viewBox", viewBoxSizes.mobileLandscape);
+          });
+        },
       }
-    });
+    );
   } else {
     svgEl.forEach((svg) => {
       svg.setAttribute("viewBox", viewBoxSizes.original);
@@ -35,7 +45,15 @@ function changeViewBox() {
   }
 }
 
+function loadSvg() {
+  svgEl.forEach((svg) => {
+    svg.addEventListener("load", () => {
+      changeViewBox();
+    });
+  });
+}
+
 window.addEventListener("resize", changeViewBox);
 
 //Executions
-changeViewBox();
+loadSvg();

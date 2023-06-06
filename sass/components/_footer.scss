@@ -1,3 +1,5 @@
+@use "../globals/variables";
+
 .main-footer {
   font-size: 1em;
   position: fixed;
@@ -6,17 +8,66 @@
 
   .footer-contents-wrapper {
     font-size: 1em;
+
+    &__btn {
+      pointer-events: none;
+
+      &.active {
+        pointer-events: auto;
+      }
+    }
+
     &__controls {
       font-size: 1em;
       padding: 1.5em;
       display: flex;
+      align-items: end;
       justify-content: space-between;
 
-      & > svg {
+      svg {
         font-size: 1em;
         display: block;
         width: 1.5em;
+        transition: transform 150ms ease-in-out;
+        will-change: transform;
+
+        &[aria-disabled="true"] {
+          opacity: 0.3;
+        }
+
+        &#btn-home {
+          width: 1em;
+          fill: variables.$primary-color;
+        }
+
+        &#button-prev {
+        }
+
+        &#button-next {
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
       }
+    }
+
+    &__btn-and-home-wrapper {
+      font-size: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      svg#button-next {
+        align-self: center;
+      }
+    }
+
+    &__btn-home-wrapper {
+      border-radius: 0.3em;
+      background-color: variables.$secondary-color;
+      padding: 0.5em;
+      font-size: 1em;
     }
   }
 }
