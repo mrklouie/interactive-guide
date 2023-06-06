@@ -1,3 +1,11 @@
+// setTimeout(() => {
+//   const mainScreen = document.querySelector(".interactive-guide-carousel");
+
+//   mainScreen.scrollIntoView(true, { behavior: "smooth" });
+
+//   console.log("dONE");
+// }, 5000);
+
 // //Variables
 // const query = matchMedia("(max-width: 1023px) and (orientation: landscape)");
 // const svgEl = document.querySelectorAll(".webportal-screen");

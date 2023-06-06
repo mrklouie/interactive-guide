@@ -4,6 +4,8 @@ const isMobile = matchMedia(
 ).matches;
 const svgEl = document.querySelectorAll(".webportal-screen");
 const ctrlBtns = document.querySelectorAll(".footer-contents-wrapper__btn");
+const mainScreen = document.querySelector(".interactive-guide-carousel");
+
 //Objects
 const viewBoxSizes = {
   original: "0 0 1018 805",
@@ -54,10 +56,11 @@ function changeViewBox() {
       { attr: { viewBox: "-250 0 1525 800" } },
 
       {
-        delay: 1.5,
+        delay: 2,
         attr: { viewBox: viewBoxSizes.mobileLandscape },
         duration: 1.5,
         onComplete: function () {
+          mainScreen.scrollIntoView({ behavior: "smooth", block: "start" });
           interactiveGuideCarousel.allowTouchMove = true;
           enableBtns();
           svgEl.forEach((svg, index) => {
@@ -82,7 +85,10 @@ function loadSvg() {
   });
 }
 
-window.addEventListener("resize", changeViewBox);
+window.addEventListener("resize", () => {
+  location.reload();
+  changeViewBox();
+});
 
 //Executions
 loadSvg();

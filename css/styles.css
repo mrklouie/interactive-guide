@@ -148,16 +148,6 @@
   text-align: center;
 }
 
-@media (max-width: 1023px) and (orientation: portrait) {
-  .disclaimer-overlay {
-    display: grid;
-  }
-}
-@media (min-width: 1024px) {
-  .disclaimer-overlay {
-    display: grid;
-  }
-}
 *,
 *::after,
 *::before {
