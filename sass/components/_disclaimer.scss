@@ -1,0 +1,28 @@
+@use "../globals/variables";
+
+.disclaimer-overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  place-items: center;
+  padding: 2em;
+  background-color: variables.$primary-color;
+  color: variables.$secondary-color;
+  font-size: clamp(1rem, 2vw, 2rem);
+}
+
+@media (max-width: 1023px) and (orientation: portrait) {
+  .disclaimer-overlay {
+    display: grid;
+  }
+}
+
+@media (min-width: 1024px) {
+  .disclaimer-overlay {
+    display: grid;
+  }
+}
