@@ -145,6 +145,7 @@
   background-color: #6199ae;
   color: #fff;
   font-size: clamp(1rem, 2vw, 2rem);
+  text-align: center;
 }
 
 @media (max-width: 1023px) and (orientation: portrait) {
