@@ -1,4 +1,5 @@
 //Variables
+
 const isMobile = matchMedia(
   "(max-width: 1023px) and (orientation: landscape)"
 ).matches;
@@ -33,6 +34,10 @@ const interactiveGuideCarousel = new Swiper(".interactive-guide-carousel", {
       alert("You've already reached the final step of this tutorial");
       location.href = "/";
     },
+
+    init: function () {
+      mainScreen.scrollIntoView({ behavior: "smooth", block: "start" });
+    },
   },
 });
 
@@ -50,7 +55,6 @@ function changeViewBox() {
   svgEl.forEach((svg) => svg.classList.add("active"));
 
   if (isMobile) {
-    console.log("Started");
     gsap.fromTo(
       svgEl[0],
       { attr: { viewBox: "-250 0 1525 800" } },
@@ -60,7 +64,6 @@ function changeViewBox() {
         attr: { viewBox: viewBoxSizes.mobileLandscape },
         duration: 1.5,
         onComplete: function () {
-          mainScreen.scrollIntoView({ behavior: "smooth", block: "start" });
           interactiveGuideCarousel.allowTouchMove = true;
           enableBtns();
           svgEl.forEach((svg, index) => {
@@ -80,6 +83,8 @@ function changeViewBox() {
 function loadSvg() {
   svgEl.forEach((svg) => {
     svg.addEventListener("load", () => {
+      console.log("Loaded");
+      mainScreen.scrollIntoView({ behavior: "smooth", block: "start" });
       changeViewBox();
     });
   });
