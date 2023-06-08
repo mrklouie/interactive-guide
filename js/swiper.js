@@ -1,4 +1,5 @@
 //Variables
+history.scrollRestoration = "manual";
 
 const isMobile = matchMedia(
   "(max-width: 1023px) and (orientation: landscape)"
@@ -33,10 +34,6 @@ const interactiveGuideCarousel = new Swiper(".interactive-guide-carousel", {
     reachEnd: function () {
       alert("You've already reached the final step of this tutorial");
       location.href = "/";
-    },
-
-    init: function () {
-      mainScreen.scrollIntoView({ behavior: "smooth", block: "start" });
     },
   },
 });
@@ -83,7 +80,6 @@ function changeViewBox() {
 function loadSvg() {
   svgEl.forEach((svg) => {
     svg.addEventListener("load", () => {
-      console.log("Loaded");
       mainScreen.scrollIntoView({ behavior: "smooth", block: "start" });
       changeViewBox();
     });
